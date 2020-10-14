@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
 import queryString from 'query-string';
-import { HeroCard } from '../heroes/HeroCard';
+import { PokemonCard } from '../pokemon/PokemonCard';
 import { useForm } from '../../hooks/useForm';
 import { useLocation } from 'react-router-dom';
-import { getHeroesByName } from '../../selectors/getHeroesByName';
+import { getPokemonByName } from '../../selectors/getPokemonByName';
+
+import "../search/SearchScreen.css";
 
 export const SearchScreen = ({ history }) => {
 
@@ -15,7 +17,7 @@ export const SearchScreen = ({ history }) => {
     });
     const { searchText } = formValues;
     
-    const heroesFiltered = useMemo(() => getHeroesByName( q ), [q])
+    const pokemonFiltered = useMemo(() => getPokemonByName( q ), [q])
 
 
     const handleSearch = (e) => {
@@ -23,21 +25,20 @@ export const SearchScreen = ({ history }) => {
         history.push(`?q=${ searchText }`);
     }
 
+    // retorna y valida las funciones de busqueda
+
     return (
-        <div>
-            <h1>Search Screen</h1>
-            <hr />
-            
+        <div className="container mt-4">  
             <div className="row">
                 
-                <div className="col-5">
-                    <h4> Search Form </h4>
+                <div className="col-sm">
+                    <h4> Search your Pokemon </h4>
                     <hr />
 
                     <form onSubmit={ handleSearch }>
                         <input 
                             type="text"
-                            placeholder="Find your hero"
+                            placeholder="Find your pokemon"
                             className="form-control"
                             name="searchText"
                             autoComplete="off"
@@ -66,23 +67,23 @@ export const SearchScreen = ({ history }) => {
                         (q ==='') 
                             && 
                             <div className="alert alert-info">
-                                Search a hero
+                                Search a Pokemon
                             </div>
                     }
 
                     { 
-                        (q !=='' && heroesFiltered.length === 0 ) 
+                        (q !=='' && pokemonFiltered.length === 0 ) 
                             && 
                             <div className="alert alert-danger">
-                                There is no a hero with { q }
+                                There is no a pokemon with { q }
                             </div>
                     }
 
                     {
-                        heroesFiltered.map( hero => (
-                            <HeroCard 
-                                key={ hero.id }
-                                { ...hero }
+                        pokemonFiltered.map( pokemon => (
+                            <PokemonCard 
+                                key={ pokemon.id }
+                                { ...pokemon }
                             />
                         ))
                     }
@@ -90,8 +91,6 @@ export const SearchScreen = ({ history }) => {
                 </div>
 
             </div>
-
-
         </div>
     )
 }

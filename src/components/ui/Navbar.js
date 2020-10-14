@@ -25,7 +25,7 @@ export const Navbar = () => {
                 className="navbar-brand" 
                 to="/"
             >
-                Asociaciones
+                Pokédex
             </Link>
 
             <div className="navbar-collapse">
@@ -35,18 +35,18 @@ export const Navbar = () => {
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to="/marvel"
+                        to="/pokemonclasico"
                     >
-                        Marvel
+                        Pokemon Clasico
                     </NavLink>
 
                     <NavLink 
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to="/dc"
+                        to="/pokemonnew"
                     >
-                        DC
+                        Pokemon New
                     </NavLink>
                     
                     <NavLink 
@@ -55,7 +55,7 @@ export const Navbar = () => {
                         exact
                         to="/search"
                     >
-                        Search
+                        Search Pokemon
                     </NavLink>
                 </div>
             </div>

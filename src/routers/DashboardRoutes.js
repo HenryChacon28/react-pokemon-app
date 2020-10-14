@@ -2,26 +2,28 @@ import React from 'react';
 import { Navbar } from '../components/ui/Navbar';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { MarvelScreen } from '../components/marvel/MarvelScreen';
-import { HeroScreen } from '../components/heroes/HeroScreen';
-import { DcScreen } from '../components/dc/DcScreen';
+import { ClasicoScreen } from '../components/pokemonclasico/clasicoScreen';
+import { PokemonScreen } from '../components/pokemon/PokemonScreen';
+import { NewScreen } from '../components/pokemonnew/NewScreen';
 import { SearchScreen } from '../components/search/SearchScreen';
 
 export const DashboardRoutes = () => {
 
 
+    // Control de las rutas principales del proyecto
+
     return (
         <>
             <Navbar />
 
-            <div className="container mt-2">
+            <div>
                 <Switch>
-                    <Route exact path="/marvel" component={ MarvelScreen } />
-                    <Route exact path="/hero/:heroeId" component={ HeroScreen } />
-                    <Route exact path="/dc" component={ DcScreen } />
+                    <Route exact path="/pokemonclasico" component={ ClasicoScreen } />
+                    <Route exact path="/pokemon/:pokemonId" component={ PokemonScreen } />
+                    <Route exact path="/pokemonnew" component={ NewScreen } />
                     <Route exact path="/search" component={ SearchScreen } />
 
-                    <Redirect to="/marvel" />
+                    <Redirect to="/pokemonclasico" />
                 </Switch>
             </div>
 

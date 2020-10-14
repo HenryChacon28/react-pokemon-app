@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../auth/AuthContext';
 import { types } from '../../types/types';
+import  Pokemon  from "../../../src/img/pokemonAll.jpg";
+
+import "../login/Login.css"
 
 export const LoginScreen = ({ history }) => {
 
@@ -22,17 +25,24 @@ export const LoginScreen = ({ history }) => {
     }
 
     return (
-        <div className="container mt-5">
-            <h1>Login</h1>
-            <hr />
+            <>
+            <div>
+            <img
+                className="Pokemon"
+                src={Pokemon}
+                alt={Pokemon}
+            />
 
             <button
-                className="btn btn-primary"
+                className="btn btn-secondary btn-lg btn-block"
                 onClick={ handleLogin }
             >
+                
                 Login
             </button>
-
-        </div>
+            
+            </div>
+            </>
+        
     )
 }
