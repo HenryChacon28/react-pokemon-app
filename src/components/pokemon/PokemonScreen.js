@@ -39,7 +39,7 @@ export const PokemonScreen = ({ history }) => {
     
     return (
         
-        <div className="row justify-content-md-center mt-4 ">
+        <div className="row justify-content-sm-center mt-4 ">
             <div className="col-4">
                 <img 
                     src={ `../assets/monsters/${ pokemonId }.png` }

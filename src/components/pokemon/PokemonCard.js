@@ -13,7 +13,7 @@ export const PokemonCard = ({
 
     return (
         <div className="card border-primary ms-3 animate__animated animate__fadeIn" style={ { maxWidth: 540 } }>
-            <div className="row no-gutters">
+            <div className="row no-gutters" id="card">
                 <div className="col-md-4">
                     <img src={ `./assets/monsters/${ id }.png` } className="card-img" alt={ monsters } />
                 </div>

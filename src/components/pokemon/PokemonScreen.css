@@ -1,3 +1,9 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: red;
+}
+
 .row {
     background-color: rgb(209, 204, 204);
+    width: 100%;
 }
